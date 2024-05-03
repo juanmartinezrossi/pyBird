@@ -1,6 +1,7 @@
 
 #primary parameters
 device_type = 'ground_station' #options: ground_station, bird_raspberry
+mode_capture = True
 mode_simulation = True
 usb_comm_port = 9
 

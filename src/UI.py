@@ -5,14 +5,14 @@ import tkinter as tk
 
 class UI:
     def __init__(self, title: str, geometry: str):
+        #print("inicializando UI")
         self.title = title
         self.geometry = geometry
         self.master = tk.Tk()
         self.master.title(self.title)
         self.master.geometry(self.geometry)
-        self.uiFrame = self.buildFrame(self.master)
-        self.uiFrame.pack()
-        self.master.mainloop()
+        #print("geometry applied")
+        #print("UI inicializada")
 
     @abstractmethod
     def buildFrame(self, fatherframe: tk):

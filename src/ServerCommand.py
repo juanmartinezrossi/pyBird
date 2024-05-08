@@ -3,13 +3,19 @@ from settings import mode_capture
 
 
 class ServerCommand(Server):
-    def __init__(self):
+    def __init__(self, clientName: str):
+        #print(f"inicializando clase padre con clientName: {clientName}")
+        super().__init__(clientName)
+        #print("inicializando subscripciones")
         self.subscribe_to_topic("telemetry")
         if mode_capture:
             self.subscribe_to_topic("media")
+        #print("inicializado")
 
-    def send_command(self, command: str):
-        self.send_message("command", command)
+    def send_command(self, thisCommand: str, *args):
+        for i, arg in enumerate(args):
+            thisCommand = thisCommand + f";{arg}"
+        self.send_message("command", thisCommand)
 
 
 

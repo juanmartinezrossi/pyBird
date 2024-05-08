@@ -8,12 +8,19 @@ from settings import server_broker_address, server_broker_port, mode_simulation,
 class Server:
 
     def __init__(self, clientName: str):
+        #print("Clase Server: Inicializando")
         self.clientName = clientName
+        #print(f"clientame: {clientName}")
         self.broker_address = server_broker_address
+        #print(f"broker_address: {server_broker_address}")
         self.broker_port = server_broker_port
+        #print(f"broker_port: {server_broker_port}")
         self.client = mqtt.Client(self.clientName)
+        #print("mqtt client creado")
         self.client.connect(self.broker_address, self.broker_port)
+        #print("mqtt client conectado")
         self.client.loop_start()
+        #print("mqtt client inicializado")
 
     def config(self):
         pass

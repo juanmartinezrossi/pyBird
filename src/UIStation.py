@@ -16,15 +16,11 @@ class UIStation(UI):
         self.server: Server = ServerCommand
         #print("Server inicializado")
         self.uiFrame = self.buildFrame(self.master)
-        print("built")
+        print("builttt")
         self.uiFrame.pack()
         print("packed")
         self.master.mainloop()
         print("looped")
-
-        confPanel = ControlFrame()
-        confPanelFrame = confPanel.buildFrame(master)
-        confPanelFrame.pack()
 
     def buildFrame(self, fatherFrame: tk):
         #print("entra a build frame")
@@ -131,8 +127,10 @@ class UIStation(UI):
         self.speedButton.grid(row=4, column=1, padx=5, pady=5,
                               sticky=tk.N + tk.S + tk.E + tk.W)
 
+        return self.controlFrame
+
     def command(self, thisCommand: str, *args: str):
-        self.server.command(thisCommand, *args)
+        self.server.send_command(thisCommand, *args)
 
 
     def get_altitude(self):

@@ -12,10 +12,9 @@ class ServerCommand(Server):
             self.subscribe_to_topic("media")
         #print("inicializado")
 
-    def send_command(self, thisCommand: str, *args):
-        for i, arg in enumerate(args):
-            thisCommand = thisCommand + f";{arg}"
-        self.send_message("command", thisCommand)
+    def send_command(self, *args: str):
+        message = ';'.join(args)
+        self.send_message("Command", message)
 
 
 

@@ -14,7 +14,7 @@ except Exception as err:
 #build UI
 ui = None
 try:
-    ui = UIFactory.build()
+    ui = UIFactory.build(server)
     ui.server = server
 except Exception as err:
     exit(1)

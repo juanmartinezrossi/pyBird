@@ -8,19 +8,12 @@ from src.Server import Server
 from src.ServerCommand import ServerCommand
 
 class UIStation(UI):
-    def __init__(self,title: str, geometry: str):
-        #print("inicializando UI Parent")
+    def __init__(self,title: str, geometry: str, server: ServerCommand):
         super().__init__(title, geometry)
-        #print("UI Parent inicializada")
-        #print("inicializando server")
-        self.server: Server = ServerCommand
-        #print("Server inicializado")
+        self.server = server
         self.uiFrame = self.buildFrame(self.master)
-        print("builttt")
         self.uiFrame.pack()
-        print("packed")
         self.master.mainloop()
-        print("looped")
 
     def buildFrame(self, fatherFrame: tk):
         #print("entra a build frame")
@@ -129,9 +122,8 @@ class UIStation(UI):
 
         return self.controlFrame
 
-    def command(self, thisCommand: str, *args: str):
-        self.server.send_command(thisCommand, *args)
-
+    # def command(self, thisCommand: str, *args: str):
+    #    self.server.send_command(thisCommand, args)
 
     def get_altitude(self):
         return self.altitude
@@ -141,61 +133,59 @@ class UIStation(UI):
 
     def command_connect(self):
         order = "Connect"
-        self.command(order)
+        self.server.send_command(order)
 
     def command_arm(self):
         order = "Arm"
-        self.command(order)
+        self.server.send_command(order)
 
     def command_RTL(self):
         order = "RTL"
-        self.command(order)
+        self.server.send_command(order)
 
     def command_takeoff(self):
         order = "TakeOff"
         altitude = self.altitude.get()
-        self.command(order, altitude)
+        self.server.send_command(order, altitude)
 
     def command_apply_speed(self):
         order = "ApplySpeed"
         speed = self.speedInput.get()
-        self.command(order, speed)
+        self.server.send_command(order, speed)
 
     def command_goN(self):
         order = "N"
-        self.command(order)
+        self.server.send_command(order)
 
     def command_goW(self):
         order = "W"
-        self.command(order)
+        self.server.send_command(order)
 
     def command_goS(self):
         order = "S"
-        self.command(order)
+        self.server.send_command(order)
 
     def command_goE(self):
         order = "E"
-        self.command(order)
+        self.server.send_command(order)
 
     def command_goNW(self):
         order = "NW"
-        self.command(order)
+        self.server.send_command(order)
 
     def command_goNE(self):
         order = "NE"
-        self.command(order)
+        self.server.send_command(order)
 
     def command_goSE(self):
         order = "SE"
-        self.command(order)
+        self.server.send_command(order)
 
     def command_goSW(self):
         order = "SW"
-        self.command(order)
+        self.server.send_command(order)
 
     def command_stop(self):
         order = "Stop"
-        self.command(order)
-
-
+        self.server.send_command(order)
 

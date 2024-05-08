@@ -1,8 +1,9 @@
 from settings import *
 from src import UI
+from src import Server
 
 
-def build() -> UI:
+def build(server: Server) -> UI:
     if device_type == 'ground_station':
         if mode_capture:
             #from src.UIStationCapture import UIStationCapture
@@ -11,10 +12,8 @@ def build() -> UI:
             pass
         else:
             #interfaz fase 1
-            title = "Little ground station"
-            geometry = "300x400"
             from src.UIStation import UIStation
-            ui = UIStation(title, geometry)
+            ui = UIStation(ui_title, ui_geometry, server)
     elif device_type == 'bird_raspberry':
         from src.UIDummy import UIDummy
         ui = UIDummy('', '')

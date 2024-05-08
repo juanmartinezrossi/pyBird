@@ -10,6 +10,8 @@ server_broker_port=1883
 #secondary parameters (do not edit)
 simulated_device_type = None
 comm_network = None
+ui_title = "Little Ground Station"
+ui_geometry = "300x400"
 
 #conditional parameters (do not edit)
 if mode_simulation:

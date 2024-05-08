@@ -7,12 +7,11 @@ broker_port = 1883
 
 def on_message(client, userdata, message):
     time.sleep(5)
-    if message.topic == "command":
-        command = message.payload.decode("utf-8")
-        print("Command received:", command)
-        if command == "arm":
-            print("Sending command: armed")
-            client.publish('response', 'armed')
+    command = message.payload.decode("utf-8")
+    print("Command received:", command)
+    if command == "arm":
+        print("Sending command: armed")
+        client.publish('response', 'armed')
 
 
 client = mqtt.Client("Drone")

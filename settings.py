@@ -1,9 +1,11 @@
 
 #primary parameters
 device_type = 'ground_station' #options: ground_station, bird_raspberry
-mode_capture = True
+mode_capture = False
 mode_simulation = True
 usb_comm_port = 9
+server_broker_address="broker.hivemq.com"
+server_broker_port=1883
 
 #secondary parameters (do not edit)
 simulated_device_type = None

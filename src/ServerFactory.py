@@ -4,10 +4,13 @@ from src import Server
 
 def build() -> Server:
     if device_type == 'ground_station':
-        pass
+        from src.ServerCommand import ServerCommand
+        server = ServerCommand()
     elif device_type == 'bird_raspberry':
-        pass
+        print("Method not implemented")
+        #from src.ServerTelemetryAndMedia import ServerTelemetryAndMedia
+        #server = ServerTelemetryAndMedia()
     else:
         raise Exception('No device selected')
 
-    return None
+    return server

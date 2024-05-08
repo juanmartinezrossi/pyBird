@@ -1,43 +1,17 @@
+from src.Server import Server
+from settings import mode_capture
+
+
+class ServerCommand(Server):
+    def __init__(self):
+        self.subscribe_to_topic("telemetry")
+        if mode_capture:
+            self.subscribe_to_topic("media")
+
+    def send_command(self, command: str):
+        self.send_message("command", command)
 
 
 
 
-
-def arm():
-    pass
-
-
-def takeoff():
-    pass
-
-
-def returnToLaunch():
-    pass
-
-
-def prepareCommand():
-    pass
-
-
-def stop():
-    pass
-
-def goN():
-    pass
-
-
-def goS():
-    pass
-
-
-def goE():
-    pass
-
-
-def goW():
-    pass
-
-
-def markDirection():
-    pass
 

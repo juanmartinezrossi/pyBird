@@ -7,12 +7,11 @@ broker_port = 1883
 
 def on_message(client, userdata, message):
     time.sleep(5)
-    if message.topic == "response":
-        command = message.payload.decode("utf-8")
-        print("Command received:", command)
-        if command == "armed":
-            print("Sending command: takeoff")
-            client.publish('command', 'takeoff')
+    command = message.payload.decode("utf-8")
+    print("Command received:", command)
+    if command == "armed":
+        print("Sending command: takeoff")
+        client.publish('command', 'takeoff')
 
 
 client = mqtt.Client("GroundStation")

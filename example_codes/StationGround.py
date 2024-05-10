@@ -11,7 +11,7 @@ def on_message(client, userdata, message):
     print("Command received:", command)
     if command == "armed":
         print("Sending command: takeoff")
-        client.publish('command', 'takeoff')
+        client.publish('Command', 'takeoff')
 
 
 client = mqtt.Client("GroundStation")
@@ -22,7 +22,7 @@ client.subscribe("response")
 client.loop_start()
 
 print("Sending command: arm")
-client.publish('command', 'arm')
+client.publish('Command', 'arm')
 
 try:
     while True:

@@ -1,11 +1,11 @@
 
 #primary parameters
-device_type = 'ground_station' #options: ground_station, bird_raspberry
+device_type = 'bird_raspberry' #options: ground_station, bird_raspberry, simulation
 mode_capture = False
-mode_simulation = True
 usb_comm_port = 9
 server_broker_address="broker.hivemq.com"
 server_broker_port=1883
+server_internal_port=1880
 
 #secondary parameters (do not edit)
 simulated_device_type = None
@@ -14,12 +14,8 @@ ui_title = "Little Ground Station"
 ui_geometry = "300x400"
 
 #conditional parameters (do not edit)
-if mode_simulation:
+if device_type == 'simulation':
     comm_network = 'local'
-    if device_type == 'ground_station':
-        simulated_device_type = 'bird_raspberry'
-    elif device_type == 'bird_raspberry':
-        simulated_device_type == 'ground_station'
-if not mode_simulation:
+else:
     comm_network = 'remote'
 

@@ -30,3 +30,4 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 topic, message = data.decode().split(':')
                 print(f"Received message from topic '{topic}': {message}")
 
+

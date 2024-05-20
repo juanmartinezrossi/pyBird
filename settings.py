@@ -1,6 +1,6 @@
 
 # primary parameters
-device_type = 'ground_station'  # options: ground_station, bird_raspberry, simulation
+device_type = 'simulation'  # options: ground_station, bird_raspberry, simulation
 comm_network = 'local '  # options: 'local', 'remote'
 mode_capture = False
 usb_comm_port = 9

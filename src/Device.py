@@ -4,9 +4,9 @@ from abc import abstractmethod
 
 class Device:
     def __init__(self):
-        self.UI
-        self.CommChannels
+        pass
 
-    def config(self):
+    @abstractmethod
+    def handle_message_and_get_response(self) -> str:
         pass
 

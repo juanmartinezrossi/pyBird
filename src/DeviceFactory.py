@@ -9,6 +9,9 @@ def build() -> Device:
     elif device_type == 'bird_raspberry':
         from src.DeviceBirdRaspberry import DeviceBirdRaspberry
         device = DeviceBirdRaspberry()
+    elif device_type == 'simulation':
+        from src.DeviceSimulation import DeviceSimulation
+        device = DeviceSimulation()
     else:
         raise Exception('No device selected')
 

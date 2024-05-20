@@ -7,7 +7,7 @@ from pymavlink import mavutil
 
 
 
-class DeviceBirdRaspberry(Device):
+class DeviceSimulation(Device):
     def __init__(self):
         self.vehicle = None
         self.speed = 10
@@ -43,6 +43,14 @@ class DeviceBirdRaspberry(Device):
             response = self.goSW()
         elif message_vector[0] == "Stop":
             response = self.stop()
+        elif message_vector[0] == "Connected":
+            print("Groundstation: The bird is CONNECTED")
+        elif message_vector[0] == "Armed":
+            print("Groundstation: The bird is ARMED")
+        elif message_vector[0] == "Reached":
+            print("Groundstation: Altitude Reached")
+        elif message_vector[0] == "Returning":
+            print("Groundstation: The bird is Returning to Land")
         else:
             print(f"Unknown command: {message_vector[0]}")
         return response

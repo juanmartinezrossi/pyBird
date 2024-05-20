@@ -13,5 +13,5 @@ ui_internal_port = 1881
 
 
 # secondary parameters (do not edit)
-ui_title = "Little Ground Station"
-ui_geometry = "300x400"
+ui_title = "pyBird Ground Station"
+ui_geometry = "600x600"

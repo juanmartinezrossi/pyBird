@@ -32,13 +32,13 @@ class UIStation(UI):
         #print("weights assigned")
 
         self.connectButton = tk.Button(self.controlFrame, text="Connect",
-                                       bg='red', fg="white", command=self.command_connect)
+                                       bg='blue', fg="white", command=self.command_connect)
         self.connectButton.grid(row=0, column=0, columnspan=2, padx=5, pady=5,
                                 sticky=tk.N + tk.S + tk.E + tk.W)
         #print("connect button built")
 
         self.armButton = tk.Button(self.controlFrame, text="Arm",
-                                   bg='red', fg="white", command=self.command_arm)
+                                   bg='blue', fg="white", command=self.command_arm)
         self.armButton.grid(row=1, column=0, columnspan=2, padx=5, pady=5,
                             sticky=tk.N + tk.S + tk.E + tk.W)
 
@@ -47,7 +47,7 @@ class UIStation(UI):
                            sticky=tk.N + tk.S + tk.E + tk.W)
 
         self.takeOffButton = tk.Button(self.controlFrame, text="TakeOff",
-                                       bg='red', fg="white", command=self.command_takeoff)
+                                       bg='blue', fg="white", command=self.command_takeoff)
         self.takeOffButton.grid(row=2, column=1, padx=5, pady=5,
                                 sticky=tk.N + tk.S + tk.E + tk.W)
 
@@ -107,7 +107,7 @@ class UIStation(UI):
                            sticky=tk.N + tk.S + tk.E + tk.W)
 
         self.RTLButton = tk.Button(self.controlFrame, text="RTL",
-                                   bg='red', fg="white", command=self.command_RTL)
+                                   bg='blue', fg="white", command=self.command_RTL)
         self.RTLButton.grid(row=5, column=0, columnspan=2, padx=5, pady=5,
                             sticky=tk.N + tk.S + tk.E + tk.W)
 
@@ -116,7 +116,7 @@ class UIStation(UI):
                              sticky=tk.N + tk.S + tk.E + tk.W)
 
         self.speedButton = tk.Button(self.controlFrame, text="ApplySpeed",
-                                     bg='red', fg='white', command=self.command_apply_speed)
+                                     bg='blue', fg='white', command=self.command_apply_speed)
         self.speedButton.grid(row=4, column=1, padx=5, pady=5,
                               sticky=tk.N + tk.S + tk.E + tk.W)
 

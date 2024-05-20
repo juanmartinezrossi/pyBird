@@ -6,12 +6,10 @@ from src import Server
 def build(server: Server) -> UI:
     if device_type == 'ground_station':
         if mode_capture:
-            #from src.UIStationCapture import UIStationCapture
-            #ui = UIStationCapture()
-            print("Method not implemented")
+            from src.UIStationCapture import UIStationCapture
+            ui = UIStationCapture()
             pass
         else:
-            #interfaz fase 1
             from src.UIStation import UIStation
             ui = UIStation(ui_title, ui_geometry, server)
 
@@ -20,8 +18,12 @@ def build(server: Server) -> UI:
         ui = UIDummy('', '')
 
     elif device_type == 'simulation':
-        from src.UIStation import UIStation
-        ui = UIStation(ui_title, ui_geometry, server)
+        if mode_capture:
+            from src.UIStationCapture import UIStationCapture
+            ui = UIStationCapture(ui_title, ui_geometry, server)
+        else:
+            from src.UIStation import UIStation
+            ui = UIStation(ui_title, ui_geometry, server)
 
     else:
         raise Exception('No device selected')

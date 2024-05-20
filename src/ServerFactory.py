@@ -14,9 +14,9 @@ def build() -> Server:
 
     elif device_type == 'bird_raspberry':
         if mode_capture:
-            raise Exception("bird_raspberry + mode_capture: method not implemented")
-            # from src.ServerTelemetryAndMedia import ServerTelemetryAndMedia
-            # server = ServerTelemetryAndMedia()
+            #raise Exception("bird_raspberry + mode_capture: method not implemented")
+            from src.ServerTelemetryAndMedia import ServerTelemetryAndMedia
+            server = ServerTelemetryAndMedia()
         else:
             from src.ServerTelemetry import ServerTelemetry
             server = ServerTelemetry("bird_telemeter")

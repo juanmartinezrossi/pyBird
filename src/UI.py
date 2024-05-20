@@ -2,8 +2,6 @@ import time
 from abc import abstractmethod
 import socket
 import tkinter as tk
-from settings import ui_internal_port
-
 
 class UI:
     def __init__(self, title: str, geometry: str):

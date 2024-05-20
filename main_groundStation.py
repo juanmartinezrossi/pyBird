@@ -18,9 +18,14 @@ except Exception as err:
 ui = None
 try:
     ui = UIFactory.build(server)
-    ui.server = server
 except Exception as err:
     exit(1)
+
+# init verification
+if ui.server is server:
+        print("ui.server is the same object as server")
+    else:
+        print("ui.server is not the same object as server")
 
 #listener
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:

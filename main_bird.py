@@ -1,6 +1,6 @@
 from src import ServerFactory
 from src.ServerFactory import build
-import time, socket
+import time, socket, threading
 
 from src import UIFactory
 from src.UIFactory import build
@@ -18,10 +18,11 @@ except Exception as err:
 # build UI
 ui = None
 try:
-    ui = UIFactory.build(server)
-    ui.server = server
-except Exception as err:
-    exit(1)
+    ui_thread = threading.Thread(target=UIFactory.build, args=(server,))
+    ui_thread.daemon = True
+    ui_thread.start()
+except Exception as e:
+    print(f"An error occurred: {e}")
 
 # listener
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:

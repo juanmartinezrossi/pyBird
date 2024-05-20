@@ -9,12 +9,10 @@ def on_message(client, userdata, message):
     command = message.payload.decode("utf-8")
     get_message(message.topic, command)
 
-
 def get_message(topic, message):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.connect(('localhost', server_internal_port))
         s.sendall(f"{topic}:{message}".encode())
-
 
 class Server:
     def __init__(self, clientName: str):

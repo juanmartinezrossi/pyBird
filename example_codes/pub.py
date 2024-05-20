@@ -6,10 +6,11 @@ broker_port = 1883
 
 client = mqtt.Client("Publisher")
 client.connect(broker_address, broker_port)
+Topic = 'Telemetry'
 
 while True:
-    client.publish('Command', 'arm')
+    client.publish(Topic, 'Arm')
     time.sleep(5)
-    client.publish ('Command', 'takeoff')
+    client.publish(Topic, 'TakeOff')
     time.sleep(5)
 print ("Goodbye")

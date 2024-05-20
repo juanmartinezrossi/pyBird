@@ -25,18 +25,17 @@ def build() -> Server:
         server.loop()
 
     elif device_type == 'simulation':
-        from src.ServerCommand import ServerCommand
-        serverA = ServerCommand("ground_station")
-        serverA.listen_telemetry()
+        from src.ServerSimulation import ServerSimulation
+        server = ServerSimulation("simulation")
+        server.connect()
+        server.listen_telemetry()
+        server.listen_commands()
         if mode_capture:
-            serverA.listen_media()
-            # serveB mot implemented
-        else:
-            from src.ServerTelemetry import ServerTelemetry
-            serverB = ServerTelemetry("bird_telemeter")
-        serverB.listen_commands()
+            server.listen_media()
+        server.loop()
 
     else:
         raise Exception('No device selected')
 
     return server
+

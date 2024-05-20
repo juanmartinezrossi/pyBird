@@ -9,9 +9,9 @@ def on_message(client, userdata, message):
     time.sleep(5)
     command = message.payload.decode("utf-8")
     print("Command received:", command)
-    if command == "arm":
+    if command == "Arm":
         print("Sending command: armed")
-        client.publish('response', 'armed')
+        client.publish('Telemetry', 'armed')
 
 
 client = mqtt.Client("Drone")

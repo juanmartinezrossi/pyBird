@@ -9,7 +9,7 @@ def on_message(client, userdata, message):
     time.sleep(5)
     command = message.payload.decode("utf-8")
     print("Command received:", command)
-    if command == "armed":
+    if command == "Armed":
         print("Sending command: takeoff")
         client.publish('Command', 'takeoff')
 

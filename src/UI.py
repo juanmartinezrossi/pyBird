@@ -1,6 +1,8 @@
 import time
 from abc import abstractmethod
+import socket
 import tkinter as tk
+from settings import ui_internal_port
 
 
 class UI:
@@ -18,3 +20,10 @@ class UI:
     def buildFrame(self, fatherframe: tk):
         self.frame = fatherframe
         return self.frame
+
+    def trigger_button(self, *args: str):
+        message = ';'.join(args)
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.connect(('localhost', ui_internal_port))
+            s.sendall(message.encode())
+

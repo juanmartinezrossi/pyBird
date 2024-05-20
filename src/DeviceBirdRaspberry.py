@@ -6,13 +6,14 @@ from dronekit import *
 from pymavlink import mavutil
 
 
+
 class DeviceBirdRaspberry(Device):
     def __init__(self):
         self.vehicle = None
         self.speed = 10
 
     def handle_message_and_get_response(self, message: str):
-        response = '' :str
+        response = ''
         message_vector = message.split(";")
         if message_vector[0] == "Connect":
             response = self.connect()
@@ -42,7 +43,7 @@ class DeviceBirdRaspberry(Device):
             response = self.goSW()
         elif message_vector[0] == "Stop":
             response = self.stop()
-        else
+        else:
             print(f"Unknown command: {message_vector[0]}")
         return response
 

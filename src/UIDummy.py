@@ -2,4 +2,5 @@ from src.UI import UI
 
 
 class UIDummy(UI):
-    pass
+    def __init__(self):
+        pass

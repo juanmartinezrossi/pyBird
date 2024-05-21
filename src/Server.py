@@ -1,6 +1,5 @@
 import paho.mqtt.client as mqtt
 import socket
-from abc import abstractmethod
 
 from settings import server_broker_address, server_broker_port, usb_comm_port, server_internal_port
 

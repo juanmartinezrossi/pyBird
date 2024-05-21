@@ -7,7 +7,7 @@ def build(server: Server) -> UI:
     if device_type == 'ground_station':
         if mode_capture:
             from src.UIStationCapture import UIStationCapture
-            ui = UIStationCapture()
+            ui = UIStationCapture(ui_title, ui_geometry, server)
             pass
         else:
             from src.UIStation import UIStation

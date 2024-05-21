@@ -2,6 +2,7 @@
 device_type = 'simulation'  # options: ground_station, bird_raspberry, simulation
 comm_network = 'local '  # options: 'local', 'remote'
 mode_capture = True
+drone_available = True
 usb_comm_port = 9
 connection_baud = 115200  # options: '115200' (local), '57600' (usb and udp->usb)
 connection_string = 'tcp:127.0.0.1:5763'  # options: 'tcp:127.0.0.1:5763', f'com{usb_comm_port}', 'udp:127.0.0.1:14550'

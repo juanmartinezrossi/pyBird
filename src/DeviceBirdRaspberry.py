@@ -1,10 +1,7 @@
 from src.Device import Device
-import shutil
-import tempfile
 from settings import connection_string, connection_baud
 from dronekit import *
 from pymavlink import mavutil
-
 
 
 class DeviceBirdRaspberry(Device):
@@ -47,15 +44,6 @@ class DeviceBirdRaspberry(Device):
             print(f"Unknown command: {message_vector[0]}")
         return response
 
-    def get_image(self):
-        file = tempfile.NamedTemporaryFile(delete=False)
-        shutil.copy2('data/capture_test.jpg', file.name)
-        return file
-
-    def get_video(self, duration):
-        file = tempfile.NamedTemporaryFile(delete=False)
-        shutil.copy2('data/video_test.mp4', file.name)
-        return file
 
     def connect(self):
         self.vehicle = connect(connection_string, wait_ready=False, baud=connection_baud)

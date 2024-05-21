@@ -8,7 +8,7 @@ from src.DeviceFactory import build
 import time, socket, threading
 
 # init settings
-from settings import server_internal_port
+from settings import server_internal_port, drone_available
 
 # build server
 server = None
@@ -16,6 +16,7 @@ try:
     server = ServerFactory.build()
 except Exception as e:
     print(f"An error occurred: {e}")
+print("Server built")
 
 # build UI
 ui = None
@@ -50,11 +51,12 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     # Process the received data (split into topic and message)
                     topic, message = data.decode().split(':')
                     print(f"Received message from topic '{topic}': {message}")
-                    response = device.handle_message_and_get_response(message)
-                    if response == '':
-                        pass
-                    else:
-                        server.send_message("Telemetry", response)
+                    if drone_available:
+                        response = device.handle_message_and_get_response(message)
+                        if response == '':
+                            pass
+                        else:
+                            server.send_message("Telemetry", response)
     except KeyboardInterrupt:
         print("\nServer is shutting down...")
     except Exception as e:

@@ -1,4 +1,3 @@
-
 # primary parameters
 device_type = 'simulation'  # options: ground_station, bird_raspberry, simulation
 comm_network = 'local '  # options: 'local', 'remote'

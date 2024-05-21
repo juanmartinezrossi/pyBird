@@ -140,13 +140,16 @@ class UIStationCapture(UI):
         return self.controlFrame
 
     def command_start_capture(self):
-        pass
+        order = "StartCapture"
+        self.server.send_command(order)
 
     def command_stop_capture(self):
-        pass
+        order = "StopCapture"
+        self.server.send_command(order)
 
     def command_take_picture(self):
-        pass
+        order = "TakePicture"
+        self.server.send_command(order)
 
     def get_altitude(self):
         return self.altitude

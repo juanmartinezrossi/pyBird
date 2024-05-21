@@ -1,13 +1,13 @@
 from src.Device import Device
 import shutil, os
-import tempfile, cv2, threading
+import tempfile
 from settings import connection_string, connection_baud, capture_storage_path
 from dronekit import *
 from pymavlink import mavutil
+import cv2, threading
 
 
-
-class DeviceSimulation(Device):
+class DeviceBirdRaspiCam(Device):
     def __init__(self):
         self.vehicle = None
         self.speed = 10
@@ -58,14 +58,6 @@ class DeviceSimulation(Device):
             response = self.goSW()
         elif message_vector[0] == "Stop":
             response = self.stop()
-        elif message_vector[0] == "Connected":
-            print("Groundstation: The bird is CONNECTED")
-        elif message_vector[0] == "Armed":
-            print("Groundstation: The bird is ARMED")
-        elif message_vector[0] == "Reached":
-            print("Groundstation: Altitude Reached")
-        elif message_vector[0] == "Returning":
-            print("Groundstation: The bird is Returning to Land")
         else:
             print(f"Unknown command: {message_vector[0]}")
         return response
@@ -102,18 +94,11 @@ class DeviceSimulation(Device):
         if self.is_capturing:
             self.is_capturing = False
             self.capture_thread.join()
-            if self.output_video is not None:
-                self.output_video.release()
-                print(f"Video saved as {self.video_filename}")
         return ''
 
     def take_picture(self):
-        self.capture = cv2.VideoCapture(0)
         os.makedirs(capture_storage_path, exist_ok=True)
         ret, frame = self.capture.read()
-        if not ret:
-            print("Failed to capture image.")
-            return ''
         self.image_counter += 1
         image_filename = f"{capture_storage_path}/captured_image_{self.image_counter}.png"
         cv2.imwrite(image_filename, frame)

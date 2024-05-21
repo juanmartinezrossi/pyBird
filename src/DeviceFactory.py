@@ -7,8 +7,12 @@ def build() -> Device:
         from src.DeviceGroundStation import DeviceGroundStation
         device = DeviceGroundStation()
     elif device_type == 'bird_raspberry':
-        from src.DeviceBirdRaspberry import DeviceBirdRaspberry
-        device = DeviceBirdRaspberry()
+        if mode_capture:
+            from src.DeviceBirdRaspiCam import DeviceBirdRaspiCam
+            device = DeviceBirdRaspiCam()
+        else:
+            from src.DeviceBirdRaspberry import DeviceBirdRaspberry
+            device = DeviceBirdRaspberry()
     elif device_type == 'simulation':
         from src.DeviceSimulation import DeviceSimulation
         device = DeviceSimulation()

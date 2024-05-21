@@ -1,0 +1,12 @@
+dronekit=2.9.2
+future=1.0.0
+lxml=5.2.1
+monotonic=1.6
+numpy=1.26.4
+opencv-python=4.9.0.80
+paho-mqtt 1.6.1
+pillow=10.3.0
+pymavlink=2.4.41
+pyserial=3.5
+setuptools=65.5.1
+wheel=0.38.4

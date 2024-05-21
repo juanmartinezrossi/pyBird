@@ -12,7 +12,11 @@ from src.ServerCommand import ServerCommand
 
 class UIStationCapture(UI):
     def __init__(self,title: str, geometry: str, server: ServerCommand):
-        super().__init__(title, geometry)
+        self.title = title
+        self.geometry = geometry
+        self.master = tk.Tk()
+        self.master.title(self.title)
+        self.master.geometry(self.geometry)
         self.server = server
         self.uiFrame = self.buildFrame(self.master)
         self.uiFrame.pack()

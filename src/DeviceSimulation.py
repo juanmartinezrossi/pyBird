@@ -6,7 +6,6 @@ from dronekit import *
 from pymavlink import mavutil
 
 
-
 class DeviceSimulation(Device):
     def __init__(self):
         self.vehicle = None

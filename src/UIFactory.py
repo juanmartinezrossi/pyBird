@@ -15,7 +15,7 @@ def build(server: Server) -> UI:
 
     elif device_type == 'bird_raspberry':
         from src.UIDummy import UIDummy
-        ui = UIDummy('', '')
+        ui = UIDummy()
 
     elif device_type == 'simulation':
         if mode_capture:

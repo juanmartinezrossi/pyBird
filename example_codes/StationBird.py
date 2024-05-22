@@ -18,7 +18,7 @@ client = mqtt.Client("Drone")
 client.on_message = on_message
 client.connect(broker_address, broker_port)
 
-client.subscribe("Command")
+client.subscribe("DJM-Command")
 client.loop_start()
 
 try:

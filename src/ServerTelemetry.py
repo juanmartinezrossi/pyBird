@@ -7,7 +7,7 @@ class ServerTelemetry(Server):
 
     def send_telemetry(self, *args: str):
         message = ';'.join(args)
-        self.send_message("Telemetry", message)
+        self.send_message("DJM-Telemetry", message)
 
     def listen_commands(self):
         self.subscribe_to_topic('Command')

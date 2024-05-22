@@ -9,11 +9,11 @@ class ServerCommand(Server):
 
     def send_command(self, *args: str):
         message = ';'.join(args)
-        self.send_message("Command", message)
+        self.send_message("DJM-Command", message)
 
     def listen_telemetry(self):
-        self.subscribe_to_topic("Telemetry")
+        self.subscribe_to_topic("DJM-Telemetry")
 
     def listen_media(self):
-        self.subscribe_to_topic("Media")
+        self.subscribe_to_topic("DJM-Media")
 

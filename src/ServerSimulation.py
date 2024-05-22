@@ -8,17 +8,17 @@ class ServerSimulation(Server):
 
     def send_command(self, *args: str):
         message = ';'.join(args)
-        self.send_message("Command", message)
+        self.send_message("DJM-Command", message)
 
     def listen_telemetry(self):
-        self.subscribe_to_topic("Telemetry")
+        self.subscribe_to_topic("DJM-Telemetry")
 
     def listen_media(self):
-        self.subscribe_to_topic("Media")
+        self.subscribe_to_topic("DJM-Media")
 
     def send_telemetry(self, *args: str):
         message = ';'.join(args)
-        self.send_message("Telemetry", message)
+        self.send_message("DJM-Telemetry", message)
 
     def listen_commands(self):
         self.subscribe_to_topic('Command')

@@ -4,10 +4,8 @@ from src import UIFactory
 from src.UIFactory import build
 from src import DeviceFactory
 from src.DeviceFactory import build
-
-import time, socket, threading
-
-# init settings
+import socket
+import threading
 from settings import server_internal_port, drone_available
 
 # build server
@@ -55,7 +53,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                         if response == '':
                             pass
                         else:
-                            server.send_message("Telemetry", response)
+                            server.send_message("DJM-Telemetry", response)
     except KeyboardInterrupt:
         print("\nServer is shutting down...")
     except Exception as e:

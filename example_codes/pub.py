@@ -6,7 +6,7 @@ broker_port = 1883
 
 client = mqtt.Client("Publisher")
 client.connect(broker_address, broker_port)
-Topic = 'Telemetry'
+Topic = "DJM-Telemetry"
 
 while True:
     client.publish(Topic, 'Arm')

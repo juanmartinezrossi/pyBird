@@ -14,5 +14,5 @@ class ServerTelemetryAndMedia(Server):
         self.send_message("DJM-Media", message)
 
     def listen_commands(self):
-        self.subscribe_to_topic('Command')
+        self.subscribe_to_topic("DJM-Command")
 

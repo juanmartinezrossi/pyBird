@@ -11,7 +11,7 @@ def on_message(client, userdata, message):
     print("Command received:", command)
     if command == "Arm":
         print("Sending command: armed")
-        client.publish('Telemetry', 'armed')
+        client.publish("DJM-Telemetry", 'armed')
 
 
 client = mqtt.Client("Drone")

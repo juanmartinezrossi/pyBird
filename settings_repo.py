@@ -1,11 +1,11 @@
 # primary parameters
-device_type = 'simulation'  # options: ground_station, bird_raspberry, simulation
+device_type = 'ground_station'  # options: ground_station, bird_raspberry, simulation
 comm_network = 'local '  # options: 'local', 'remote'
-mode_capture = True
+mode_capture = False
 drone_available = True
 usb_comm_port = 9
 connection_baud = 115200  # options: '115200' (local), '57600' (usb and udp->usb)
-connection_string = 'tcp:127.0.0.1:5763'  # options: 'tcp:127.0.0.1:5763', f'com{usb_comm_port}', 'udp:127.0.0.1:14550', '/dev/ttyS0'
+connection_string = '/dev/ttyS0'  # options: 'tcp:127.0.0.1:5763', f'com{usb_comm_port}', 'udp:127.0.0.1:14550', '/dev/ttyS0'
 # if connection_string is udp, execute in Windows powershell:
 # mavproxy --master=com9 --out=udp:127.0.0.1:14550 --out= udp:127.0.0.1:14551
 server_broker_address = "broker.hivemq.com"

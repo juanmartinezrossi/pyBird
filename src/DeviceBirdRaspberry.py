@@ -46,6 +46,7 @@ class DeviceBirdRaspberry(Device):
 
 
     def connect(self):
+        print(f"Connecting with connection_string: {connection_string}, baud = {connection_baud}")
         self.vehicle = connect(connection_string, wait_ready=False, baud=connection_baud)
         self.vehicle.wait_ready(True, timeout=5000)
         return 'Connected'

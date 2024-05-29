@@ -44,13 +44,11 @@ class DeviceBirdRaspberry(Device):
             print(f"Unknown command: {message_vector[0]}")
         return response
 
-
     def connect(self):
         print(f"Connecting with connection_string: {connection_string}, baud = {connection_baud}")
         self.vehicle = connect(connection_string, wait_ready=False, baud=connection_baud)
         self.vehicle.wait_ready(True, timeout=5000)
         return 'Connected'
-        # responder que está conectado
 
     def arm(self):
         """ Arms vehicle and fly to aTargetAltitude. """
@@ -110,7 +108,7 @@ class DeviceBirdRaspberry(Device):
         return msg
 
     def stop(self):
-        cmd = self.prepare_command(0, 0, 0)  # stop
+        cmd = self.prepare_command(0, 0, 0)
         self.vehicle.send_mavlink(cmd)
         return ''
 
@@ -140,7 +138,7 @@ class DeviceBirdRaspberry(Device):
         return ''
 
     def goSW(self):
-        cmd = self.prepare_command(-self.speed, -self.speed, 0)  # NORTH
+        cmd = self.prepare_command(-self.speed, -self.speed, 0)
         self.vehicle.send_mavlink(cmd)
         return ''
 
@@ -150,7 +148,7 @@ class DeviceBirdRaspberry(Device):
         return ''
 
     def goSE(self):
-        cmd = self.prepare_command(-self.speed, self.speed, 0)  # NORTH
+        cmd = self.prepare_command(-self.speed, self.speed, 0)
         self.vehicle.send_mavlink(cmd)
         return ''
 
